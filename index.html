@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hava Durumu</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="getWeather()">
+  <div class="container">
+    <h1>Hava Durumu</h1>
+    <input type="text" id="cityInput" placeholder="Şehir girin...">
+    <button onclick="getWeather()">Göster</button>
+
+    <div class="current-weather">
+      <h2 id="cityName">Antalya</h2>
+      <p id="temp">30°C</p>
+      <p id="description">parçalı bulutlu</p>
+      <p id="details">Nem: 79% | Rüzgar: 2.5 km/s</p>
+    </div>
+
+    <div id="hourlyForecast" class="hourly-forecast"></div>
+
+    <canvas id="tempChart" width="400" height="200"></canvas>
+
+    <div class="forecast" id="forecastContainer"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
