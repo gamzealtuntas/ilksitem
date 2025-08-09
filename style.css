@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url("resim/436596_stock-photo-sky-and-reflection.jpg"); /* Arka plan resminin adı */
+  background-image: url("resim/436596_stock-photo-sky-and-reflection.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -30,11 +30,13 @@ input, button {
   border-radius: 5px;
   border: none;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 input {
   width: 200px;
   margin-right: 10px;
+  max-width: 100%;
 }
 
 button {
@@ -70,6 +72,13 @@ button:hover {
   padding: 15px;
   border-radius: 10px;
   width: 100px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.forecast-card img {
+  width: 50px;
+  height: 50px;
 }
 
 .hourly-forecast {
@@ -87,25 +96,44 @@ button:hover {
   width: 80px;
   color: #fff;
   font-weight: bold;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.hourly-card img {
+  width: 40px;
+  height: 40px;
 }
 
 /* Mobil cihazlar için */
 @media (max-width: 600px) {
   .forecast,
   .hourly-forecast {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* iOS için yumuşak kaydırma */
   }
 
   .forecast-card,
   .hourly-card {
-    width: 80%;
-    margin-bottom: 10px;
+    flex: 0 0 auto; /* sabit genişlikte kartlar */
+    width: 80px;
+    margin-bottom: 0;
+  }
+
+  .forecast-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hourly-card img {
+    width: 30px;
+    height: 30px;
   }
 
   input {
     width: 100%;
-    margin-bottom: 10px;
+    margin: 10px 0;
   }
 
   button {
@@ -116,6 +144,12 @@ button:hover {
     padding: 10px;
   }
 }
+
+/* Sayfanın yatay kaydırmasını önle */
 html, body {
   overflow-x: hidden;
 }
+
+/* Viewport ayarı için HTML dosyasına şunu eklemeyi unutma: 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+*/
